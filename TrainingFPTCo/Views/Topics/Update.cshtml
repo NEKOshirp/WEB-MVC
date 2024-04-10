@@ -1,0 +1,142 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model TrainingFPT.Models.TopicDetail
+
+@{
+    ViewData["Title"] = "Topic Page Update";
+    ViewData["namePage"] = "Topic Update";
+    ViewData["breadcrumb"] = "Home";
+    ViewData["breadcrumb_active"] = "Update Topic";
+    ViewBag.report = false;
+
+    Layout = "~/Views/Shared/_LayoutMain4.cshtml";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.css">
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5> Update Topic</h5>
+            </div>
+            <div class="card-body">
+                <form enctype="multipart/form-data" asp-action="Update">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="Name"></label>
+                                <input type="text" asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                                @* id cua course *@
+                                <input type="hidden" asp-for="Id" />
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label>Course</label>
+                                <select class="form-control"
+                                        asp-for="CourseId"
+                                        asp-items="@(new SelectList(ViewBag.Courses,"Value", "Text"))">
+                                </select>
+                                <span asp-validation-for="CourseId"></span>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label asp-for="Description"></label>
+                                <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label asp-for="Status"></label>
+                                <select class="form-control" asp-for="Status">
+                                    <option value=""> -- Choose --</option>
+                                    <option value="Active"> Active </option>
+                                    <option value="Deactive"> Deactive </option>
+                                </select>
+                                <span asp-validation-for="Status"></span>
+                            </div>
+                        </div>
+
+                        <div class="com-sm-12 col-md-6">
+                            <div class="form-group">
+                                <label asp-for="ViewPosterTopic"></label>
+                                <input type="file" asp-for="ViewPosterTopic" class="form-control" />
+                                <span asp-validation-for="ViewPosterTopic"></span>
+                                <img width="50%" class="img-fluid" src="/uploads/images/@Model.ViewPosterTopic" />
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label asp-for="Documents"></label>
+                                <input type="file" asp-for="Documents" class="form-control" />
+                                <span asp-validation-for="Documents"></span>
+                                <br />
+                                <video controls width="50%" src="/uploads/images/@Model.ViewDocuments" alt="@Model.Name" />
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label asp-for="AttachFile"></label>
+                                <input type="file" asp-for="AttachFile" class="form-control" />
+                                <span asp-validation-for="AttachFile"></span>
+                                <br />
+                                @if (!string.IsNullOrEmpty(Model.ViewAttachFile))
+                                {
+                                    @if (Model.ViewAttachFile.EndsWith(".pdf"))
+                                    {
+                                        <object data="/uploads/images/@Model.ViewAttachFile" type="application/pdf" width="100%" height="600">
+                                            <a href="/uploads/images/@Model.ViewAttachFile">Xem hoặc tải về file</a>
+                                        </object>
+                                    }
+                                    else if (Model.ViewAttachFile.EndsWith(".mp4") || Model.ViewAttachFile.EndsWith(".avi") || Model.ViewAttachFile.EndsWith(".mov"))
+                                    {
+                                        <video controls width="100%" height="auto">
+                                            <source src="/uploads/images/@Model.ViewAttachFile" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    }
+                                    else if (Model.ViewAttachFile.EndsWith(".jpg") || Model.ViewAttachFile.EndsWith(".png") || Model.ViewAttachFile.EndsWith(".jpeg") || Model.ViewAttachFile.EndsWith(".gif"))
+                                    {
+                                        <img src="/uploads/images/@Model.ViewAttachFile" alt="Image">
+                                    }
+                                    else if (Model.ViewAttachFile.EndsWith(".mp3") || Model.ViewAttachFile.EndsWith(".wav") || Model.ViewAttachFile.EndsWith(".ogg"))
+                                    {
+                                        <audio controls>
+                                            <source src="/uploads/images/@Model.ViewAttachFile" type="audio/mpeg">
+                                            Your browser does not support the audio tag.
+                                        </audio>
+                                    }
+                                    else if (Model.ViewAttachFile.EndsWith(".docx"))
+                                    {
+                                        <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=/uploads/images/@Model.ViewAttachFile"
+                                                style="width:600px; height:500px;" frameborder="0"></iframe>
+                                    }
+                                    else if (Model.ViewAttachFile.EndsWith(".pptx"))
+                                    {
+                                        <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=/uploads/images/@Model.ViewAttachFile"
+                                                style="width:600px; height:500px;" frameborder="0"></iframe>
+                                    }
+                                    else if (Model.ViewAttachFile.EndsWith(".zip"))
+                                    {
+                                        <iframe src="https://drive.google.com/file/d/your_file_id/preview"
+                                                style="width:600px; height:500px;" frameborder="0"></iframe>
+                                        <!-- Replace 'your_file_id' with the ID of the file in your Google Drive -->
+                                    }
+                                    else
+                                    {
+                                        <a href="/uploads/images/@Model.ViewAttachFile">Xem hoặc tải về file</a>
+                                    }
+                                }
+                            </div>
+
+
+
+
+                            <button class="btn btn-primary" type="submit"> Update </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

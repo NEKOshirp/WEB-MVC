@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Models",
+    "\\Views",
+    "\\Views\\Account",
+    "\\Views\\Category",
+    "\\Views\\Courses",
+    "\\Views\\Dashboard",
+    "\\Views\\Home",
+    "\\Views\\Login",
+    "\\Views\\Shared"
+  ],
+  "SelectedNode": "\\Models\\AccountViewModel.cs",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,177 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["title"] = "Dashboard";
+    ViewData["breadcrumb"] = "Home";
+    ViewData["breadcrumb_active"] = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<div class="row m-0" id="container-1">
+<div class="row m-0" id="top-logo-HomePage">
+    <img id="topLogoHome" src="https://fap.fpi.edu.vn/images/NewPage/Sidebar/btec.svg" style="max-width: 180px; height: auto;">
+</div>
+
+    
+        <br>
+
+        <!-- Modal -->
+        <div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content p-5">
+                    <div class="modal-header pl-0 pr-0 pt-0" style="border-bottom-style: dashed; border-bottom-width: 2px;">
+                        <div class="container-fluid d-flex flex-column">
+                            <div class="container-fluid d-flex align-items-center">
+                                <div>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 20C3.45 20 2.97933 19.8043 2.588 19.413C2.196 19.021 2 18.55 2 18V14C2.55 14 3.021 13.804 3.413 13.412C3.80433 13.0207 4 12.55 4 12C4 11.45 3.80433 10.979 3.413 10.587C3.021 10.1957 2.55 10 2 10V6C2 5.45 2.196 4.97933 2.588 4.588C2.97933 4.196 3.45 4 4 4H20C20.55 4 21.021 4.196 21.413 4.588C21.8043 4.97933 22 5.45 22 6V10C21.45 10 20.979 10.1957 20.587 10.587C20.1957 10.979 20 11.45 20 12C20 12.55 20.1957 13.0207 20.587 13.412C20.979 13.804 21.45 14 22 14V18C22 18.55 21.8043 19.021 21.413 19.413C21.021 19.8043 20.55 20 20 20H4ZM12 13.9L13.5 15.05C13.7 15.2 13.9043 15.204 14.113 15.062C14.321 14.9207 14.3833 14.7333 14.3 14.5L13.7 12.6L15.375 11.3C15.5583 11.1667 15.6127 10.9833 15.538 10.75C15.4627 10.5167 15.3 10.4 15.05 10.4H13.1L12.475 8.475C12.3917 8.24167 12.2333 8.125 12 8.125C11.7667 8.125 11.6083 8.24167 11.525 8.475L10.9 10.4H8.925C8.69167 10.4 8.53767 10.5123 8.463 10.737C8.38767 10.9623 8.44167 11.15 8.625 11.3L10.25 12.6L9.65 14.525C9.56667 14.7583 9.62933 14.9457 9.838 15.087C10.046 15.229 10.2417 15.225 10.425 15.075L12 13.9Z" fill="var(--Main-Color)"></path>
+                                    </svg>
+                                </div>
+                                <div class="pl-2 text-uppercase" id="title-content-model">
+                                </div>
+                            </div>
+
+                            <div id="post-by-content-model">
+                                Post by <span id="news-posted-by">sro.btec.hn </span> on <span id="news-posted-time">14/01/2023 11:16</span>
+                            </div>
+                        </div>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body pl-0 pr-0">
+                        <div class="container-fluid d-flex flex-column">
+                            <div class="text-uppercase font-weight-bold pb-2" style="font-size: 1.25rem" id="title-modal-body">
+                            </div>
+                            <div class="text-break text-justify" style="font-size: 1.125rem; line-height: 1.375rem;" id="content-modal-body">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer pl-0" style="border-top-style: dashed; border-top-width: 2px;">
+                        <div class="container-fluid d-flex flex-column">
+                            <div class="text-uppercase font-weight-bold pb-2" style="font-size: 1.25rem" id="title-modal-footer">
+                                Tin Khác
+                            </div>
+                            <div id="modal-footer-content" style="font-size: 1.125rem; line-height: 1.375rem;">
+                                <div id="ctl00_ContentPlaceHolder_Main_modalNewsList">
+                                    <ul class="list-group pl-3" id="content-modal-footer">
+                                        <li id="news-442" onclick="ShowNewsFooter(this)">05/04/24 11:02 - KHẢO THÍ: DANH SÁCH SINH VIÊN THI PROGRESS TEST 2 CÁC MÔN TIẾNG ANH KỲ SPRING2024 - PART 2 <span class="experied"></span></li>
+
+                                        <li id="news-441" onclick="ShowNewsFooter(this)">05/04/24 10:15 - KHẢO THÍ: THÔNG BÁO ĐIỂM MÔN CF01 KỲ SPRING 2024- Gradebook of Class CF01.01.HL.LCS Spring 2024 <span class="experied"></span></li>
+
+                                        <li id="news-434" onclick="ShowNewsFooter(this)">28/03/24 10:16 - THÔNG BÁO: ĐĂNG KÝ CHUYỂN NGÀNH/CHUYÊN NGÀNH, CHUYỂN CƠ SỞ, BẢO LƯU, MIỄN GIẢM HỌC PHẦN – KỲ SUMMER 2024 <span class="experied"></span></li>
+
+                                        <li id="news-430" onclick="ShowNewsFooter(this)">27/03/24 09:25 - KHẢO THÍ: THÔNG BÁO ĐIỂM THI PROGRESS TEST 2 CÁC MÔN TIẾNG ANH KỲ SPRING 2024 PART 1 <span class="experied"></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ctl00_ContentPlaceHolder_Main_newsList" class="list-group bg-transparent news-list pt-3 pb-1">
+            <ul class="p-0">
+                <li class="list-group-item bg-transparent border-0 pl-0 pt-1 pb-1">
+                    <div class="list-items">
+                        <a data-toggle="modal" data-target="#newsModal" onclick="ShowModal(this)" id="news-442">
+                            <div>
+                                <svg width="36" height="42" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M34.375 6.625C34.375 5.8625 34.0787 5.13123 33.5512 4.59207C33.0238 4.0529 32.3084 3.75 31.5625 3.75H25.9375V0.875H23.125V3.75H11.875V0.875H9.0625V3.75H3.4375C2.69158 3.75 1.97621 4.0529 1.44876 4.59207C0.921316 5.13123 0.625 5.8625 0.625 6.625V35.375C0.625 36.1375 0.921316 36.8688 1.44876 37.4079C1.97621 37.9471 2.69158 38.25 3.4375 38.25H9.0625V35.375H3.4375V6.625H9.0625V9.5H11.875V6.625H23.125V9.5H25.9375V6.625H31.5625V15.25H34.375V6.625Z" fill="#4D2C5E" fill-opacity="0.4"></path>
+                                    <path d="M24.5312 19.5625L28.1158 26.6609L35.7812 27.7979L30.1562 33.3237L31.5625 41.125L24.5312 37.4421L17.5 41.125L18.9062 33.3237L13.2812 27.7979L21.1563 26.6609L24.5312 19.5625Z" fill="#4D2C5E" fill-opacity="0.4"></path>
+                                </svg>
+                            </div>
+                            <div class="p-1">
+                                <span class="normal-text-List">05/04/24 11:02</span> - <span class="bold-text-List">KHẢO THÍ: DANH SÁCH SINH VIÊN THI PROGRESS TEST 2 CÁC MÔN TIẾNG ANH KỲ SPRING2024 - PART 2</span>
+                                <br>
+                                <span class="experied"></span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="list-group-item bg-transparent border-0 pl-0 pt-1 pb-1">
+                    <div class="list-items">
+                        <a data-toggle="modal" data-target="#newsModal" onclick="ShowModal(this)" id="news-441">
+                            <div>
+                                <svg width="36" height="42" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M34.375 6.625C34.375 5.8625 34.0787 5.13123 33.5512 4.59207C33.0238 4.0529 32.3084 3.75 31.5625 3.75H25.9375V0.875H23.125V3.75H11.875V0.875H9.0625V3.75H3.4375C2.69158 3.75 1.97621 4.0529 1.44876 4.59207C0.921316 5.13123 0.625 5.8625 0.625 6.625V35.375C0.625 36.1375 0.921316 36.8688 1.44876 37.4079C1.97621 37.9471 2.69158 38.25 3.4375 38.25H9.0625V35.375H3.4375V6.625H9.0625V9.5H11.875V6.625H23.125V9.5H25.9375V6.625H31.5625V15.25H34.375V6.625Z" fill="#4D2C5E" fill-opacity="0.4"></path>
+                                    <path d="M24.5312 19.5625L28.1158 26.6609L35.7812 27.7979L30.1562 33.3237L31.5625 41.125L24.5312 37.4421L17.5 41.125L18.9062 33.3237L13.2812 27.7979L21.1563 26.6609L24.5312 19.5625Z" fill="#4D2C5E" fill-opacity="0.4"></path>
+                                </svg>
+                            </div>
+                            <div class="p-1">
+                                <span class="normal-text-List">05/04/24 10:15</span> - <span class="bold-text-List">KHẢO THÍ: THÔNG BÁO ĐIỂM MÔN CF01 KỲ SPRING 2024- Gradebook of Class CF01.01.HL.LCS Spring 2024</span>
+                                <br>
+                                <span class="experied"></span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="list-group-item bg-transparent border-0 pl-0 pt-1 pb-1">
+                    <div class="list-items">
+                        <a data-toggle="modal" data-target="#newsModal" onclick="ShowModal(this)" id="news-434">
+                            <div>
+                                <svg width="36" height="42" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M34.375 6.625C34.375 5.8625 34.0787 5.13123 33.5512 4.59207C33.0238 4.0529 32.3084 3.75 31.5625 3.75H25.9375V0.875H23.125V3.75H11.875V0.875H9.0625V3.75H3.4375C2.69158 3.75 1.97621 4.0529 1.44876 4.59207C0.921316 5.13123 0.625 5.8625 0.625 6.625V35.375C0.625 36.1375 0.921316 36.8688 1.44876 37.4079C1.97621 37.9471 2.69158 38.25 3.4375 38.25H9.0625V35.375H3.4375V6.625H9.0625V9.5H11.875V6.625H23.125V9.5H25.9375V6.625H31.5625V15.25H34.375V6.625Z" fill="#4D2C5E" fill-opacity="0.4"></path>
+                                    <path d="M24.5312 19.5625L28.1158 26.6609L35.7812 27.7979L30.1562 33.3237L31.5625 41.125L24.5312 37.4421L17.5 41.125L18.9062 33.3237L13.2812 27.7979L21.1563 26.6609L24.5312 19.5625Z" fill="#4D2C5E" fill-opacity="0.4"></path>
+                                </svg>
+                            </div>
+                            <div class="p-1">
+                                <span class="normal-text-List">28/03/24 10:16</span> - <span class="bold-text-List">THÔNG BÁO: ĐĂNG KÝ CHUYỂN NGÀNH/CHUYÊN NGÀNH, CHUYỂN CƠ SỞ, BẢO LƯU, MIỄN GIẢM HỌC PHẦN – KỲ SUMMER 2024</span>
+                                <br>
+                                <span class="experied"></span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="list-group-item bg-transparent border-0 pl-0 pt-1 pb-1">
+                    <div class="list-items">
+                        <a data-toggle="modal" data-target="#newsModal" onclick="ShowModal(this)" id="news-430">
+                            <div>
+                                <svg width="36" height="42" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M34.375 6.625C34.375 5.8625 34.0787 5.13123 33.5512 4.59207C33.0238 4.0529 32.3084 3.75 31.5625 3.75H25.9375V0.875H23.125V3.75H11.875V0.875H9.0625V3.75H3.4375C2.69158 3.75 1.97621 4.0529 1.44876 4.59207C0.921316 5.13123 0.625 5.8625 0.625 6.625V35.375C0.625 36.1375 0.921316 36.8688 1.44876 37.4079C1.97621 37.9471 2.69158 38.25 3.4375 38.25H9.0625V35.375H3.4375V6.625H9.0625V9.5H11.875V6.625H23.125V9.5H25.9375V6.625H31.5625V15.25H34.375V6.625Z" fill="#4D2C5E" fill-opacity="0.4"></path>
+                                    <path d="M24.5312 19.5625L28.1158 26.6609L35.7812 27.7979L30.1562 33.3237L31.5625 41.125L24.5312 37.4421L17.5 41.125L18.9062 33.3237L13.2812 27.7979L21.1563 26.6609L24.5312 19.5625Z" fill="#4D2C5E" fill-opacity="0.4"></path>
+                                </svg>
+                            </div>
+                            <div class="p-1">
+                                <span class="normal-text-List">27/03/24 09:25</span> - <span class="bold-text-List">KHẢO THÍ: THÔNG BÁO ĐIỂM THI PROGRESS TEST 2 CÁC MÔN TIẾNG ANH KỲ SPRING 2024 PART 1</span>
+                                <br>
+                                <span class="experied"></span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class=" row text-left m-0 pb-1 d-md-flex d-none">
+            <a href="News/NewList.aspx" class="text-black-50" style="text-decoration-style:solid">
+                More
+            </a>
+
+        </div>
+        <div class="input-group pb-1" id="search-notify">
+            <input id="txtSearchNews" type="text" class="form-control border-0" placeholder="Search for news..." onkeypress="newsSearchKeyPress(event)" onkeyup="ResetTextBox(this)">
+            <div class="input-group-append pos-relative">
+                <button class="btn btn-secondary bg-white border-0" type="button" id="btnSearchNews" onclick="FetchNewsData()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.6125 15.4923C18.7935 13.8795 19.4999 11.8985 19.4999 9.75096C19.4999 4.375 15.1259 0.000976562 9.74993 0.000976562C4.37398 0.000976562 0 4.375 0 9.75096C0 15.1269 4.37403 19.5009 9.74998 19.5009C11.8975 19.5009 13.8787 18.7944 15.4915 17.6134L21.8789 24.0008L24 21.8798C24 21.8797 17.6125 15.4923 17.6125 15.4923ZM9.74998 16.5009C6.02781 16.5009 3.00001 13.4731 3.00001 9.75096C3.00001 6.02879 6.02781 3.00099 9.74998 3.00099C13.4721 3.00099 16.4999 6.02879 16.4999 9.75096C16.4999 13.4731 13.4721 16.5009 9.74998 16.5009Z" fill="var(--Main-Color)"></path>
+                    </svg>
+                </button>
+            </div>
+            <ul class="list-group bg-white" id="list_scroll">
+            </ul>
+        </div>
+        <div>
+        </div>
+
+        <div id="ctl00_ContentPlaceHolder_Main_divCMS">
+        </div>
+
+    </div>
+    <div class="col-lg-6 p-3 align-self-center">
+        <img src="https://fap.fpi.edu.vn/images/NewPage/HomePage/pic1.svg" style="width: 100%">
+    </div>
+    
